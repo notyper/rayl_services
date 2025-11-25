@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Before & After Gallery - Dream Home Improvements</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles to ensure the container is positioned correctly for the slider */
+        .comparison-container {
+            position: relative;
+            overflow: hidden;
+            user-select: none;
+            /* Ensure aspect ratio consistency */
+            aspect-ratio: 1.5 / 1; 
+        }
+
+        .comparison-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none; /* Ignore clicks on images */
+        }
+
+        /* The 'Before' image is the movable element */
+        .img-before-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%; /* Initial split at 50% */
+            height: 100%;
+            overflow: hidden;
+            z-index: 20; /* Above the 'After' image */
+            will-change: width;
+        }
+
+        .img-before-wrapper img {
+            /* This image must be full-width of the container, not the wrapper, to stay aligned */
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* The movable handle/divider */
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            left: 50%; /* Initial position at 50% */
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background-color: #fca5a5; /* Red-300 */
+            z-index: 30;
+            cursor: ew-resize;
+            touch-action: none; /* Disable default touch actions */
+            transition: background-color 0.15s ease-in-out;
+        }
+
+        .slider-handle::before {
+            content: '↔';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            background-color: #ef4444; /* Red-500 */
+            border: 3px solid white;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            font-size: 1.25rem;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .comparison-container:hover .slider-handle {
+            background-color: #ef4444; /* Red-500 on hover */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800 antialiased">
+
+    <!-- Header and Navigation -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-extrabold text-gray-900">
+                <span class="text-red-600">2025</span> Rayl Services LLC
+            </h1>
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-red-600 font-semibold border-b-2 border-red-600 pb-1 transition duration-150 ease-in-out">Home</a>
+                <a href="gallery.html" class="text-gray-600 hover:text-red-600 transition duration-150 ease-in-out">Gallery</a>
+                <a href="services.html" class="text-gray-600 hover:text-red-600 transition duration-150 ease-in-out">Services</a>
+                <a href="about.html" class="text-gray-600 hover:text-red-600 transition duration-150 ease-in-out">About</a>
+                <a href="contact.html" class="text-gray-600 hover:text-red-600 transition duration-150 ease-in-out">Contact</a>
+            </nav>
+            <!-- Mobile Menu Placeholder (Not functional, but good practice for responsive design) -->
+            <button class="md:hidden text-gray-600 hover:text-red-600 focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 class="text-4xl font-extrabold text-center mb-10 text-gray-900">Before & After Transformations</h2>
+        <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+            Drag the slider in the middle of each image pair to see the incredible transformation from start to finish.
+        </p>
+
+        <!-- Gallery Grid -->
+        <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Gallery Items will be dynamically populated here or hardcoded below -->
+
+            <!-- Reusable Gallery Item Structure (Example 1: Kitchen) -->
+            <div class="bg-white rounded-xl shadow-2xl overflow-hidden group">
+                <div id="comp-1" class="comparison-container rounded-t-xl">
+                    <!-- After Image (Base Layer) -->
+                    <img src="https://placehold.co/600x400/059669/ffffff?text=After%20(Kitchen)" alt="After Kitchen Renovation" class="img-after">
+                    <img src="https://placehold.co/600x400/059669/ffffff?text=After%20(Kitchen)" alt="After Kitchen Renovation" class="img-after">
+                    
+                    <!-- Before Image Wrapper (Clipped Layer) -->
+                    <div class="img-before-wrapper">
+                        <img src="https://placehold.co/600x400/dc2626/ffffff?text=Before%20(Kitchen)" alt="Before Kitchen Renovation" class="img-before">
+                    </div>
+                    
+                    <!-- Slider Handle -->
+                    <div class="slider-handle"></div>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-xl text-gray-900">Modern Kitchen Upgrade</h3>
+                    <p class="text-sm text-gray-500">Full cabinet, appliance, and countertop replacement.</p>
+                </div>
+            </div>
+
+            <!-- Example 2: Bathroom -->
+            <div class="bg-white rounded-xl shadow-2xl overflow-hidden group">
+                <div id="comp-2" class="comparison-container rounded-t-xl">
+                    <img src="https://placehold.co/600x400/1d4ed8/ffffff?text=After%20(Bathroom)" alt="After Bathroom Remodel" class="img-after">
+                    <div class="img-before-wrapper">
+                        <img src="https://placehold.co/600x400/f59e0b/ffffff?text=Before%20(Bathroom)" alt="Before Bathroom Remodel" class="img-before">
+                    </div>
+                    <div class="slider-handle"></div>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-xl text-gray-900">Spa-Inspired Bathroom</h3>
+                    <p class="text-sm text-gray-500">New tiling, vanity, and walk-in shower installation.</p>
+                </div>
+            </div>
+
+            <!-- Example 3: Exterior Siding -->
+            <div class="bg-white rounded-xl shadow-2xl overflow-hidden group">
+                <div id="comp-3" class="comparison-container rounded-t-xl">
+                    <img src="https://placehold.co/600x400/4f46e5/ffffff?text=After%20(Exterior)" alt="After Exterior Siding" class="img-after">
+                    <div class="img-before-wrapper">
+                        <img src="https://placehold.co/600x400/065f46/ffffff?text=Before%20(Exterior)" alt="Before Exterior Siding" class="img-before">
+                    </div>
+                    <div class="slider-handle"></div>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-xl text-gray-900">New Home Facade</h3>
+                    <p class="text-sm text-gray-500">Modern vinyl siding and fresh paint job.</p>
+                </div>
+            </div>
+            
+            <!-- Example 4: Deck Refinishing -->
+            <div class="bg-white rounded-xl shadow-2xl overflow-hidden group">
+                <div id="comp-4" class="comparison-container rounded-t-xl">
+                    <img src="https://placehold.co/600x400/b91c1c/ffffff?text=After%20(Deck)" alt="After Deck Refinishing" class="img-after">
+                    <div class="img-before-wrapper">
+                        <img src="https://placehold.co/600x400/374151/ffffff?text=Before%20(Deck)" alt="Before Deck Refinishing" class="img-before">
+                    </div>
+                    <div class="slider-handle"></div>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-xl text-gray-900">Deck Restoration</h3>
+                    <p class="text-sm text-gray-500">Sanding, staining, and sealing for a vibrant deck.</p>
+                </div>
+            </div>
+
+             <!-- Example 5: Living Room -->
+             <div class="bg-white rounded-xl shadow-2xl overflow-hidden group">
+                <div id="comp-5" class="comparison-container rounded-t-xl">
+                    <img src="https://placehold.co/600x400/10b981/ffffff?text=After%20(Living%20Room)" alt="After Living Room Remodel" class="img-after">
+                    <div class="img-before-wrapper">
+                        <img src="https://placehold.co/600x400/ef4444/ffffff?text=Before%20(Living%20Room)" alt="Before Living Room Remodel" class="img-before">
+                    </div>
+                    <div class="slider-handle"></div>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-xl text-gray-900">Cozy Living Space</h3>
+                    <p class="text-sm text-gray-500">New flooring, recessed lighting, and paint.</p>
+                </div>
+            </div>
+
+            <!-- Example 6: Landscaping -->
+             <div class="bg-white rounded-xl shadow-2xl overflow-hidden group">
+                <div id="comp-6" class="comparison-container rounded-t-xl">
+                    <img src="https://placehold.co/600x400/0369a1/ffffff?text=After%20(Garden)" alt="After Garden Landscaping" class="img-after">
+                    <div class="img-before-wrapper">
+                        <img src="https://placehold.co/600x400/65a30d/ffffff?text=Before%20(Garden)" alt="Before Garden Landscaping" class="img-before">
+                    </div>
+                    <div class="slider-handle"></div>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-xl text-gray-900">Backyard Oasis</h3>
+                    <p class="text-sm text-gray-500">Professional garden bed installation and lawn care.</p>
+                </div>
+            </div>
+
+        </div> <!-- End Gallery Grid -->
+        
+        <div class="text-center mt-16 p-8 bg-white rounded-xl shadow-inner">
+            <p class="text-lg font-medium text-gray-700">Ready to start your own transformation? Contact us today!</p>
+            <button class="mt-4 px-6 py-3 bg-red-600 text-white font-bold rounded-full hover:bg-red-700 transition duration-300 shadow-lg">Get a Free Estimate</button>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const comparisonContainers = document.querySelectorAll('.comparison-container');
+
+            comparisonContainers.forEach(container => {
+                const wrapper = container.querySelector('.img-before-wrapper');
+                const handle = container.querySelector('.slider-handle');
+                let isDragging = false;
+
+                // Function to update the slider position
+                function slide(x) {
+                    const rect = container.getBoundingClientRect();
+                    let position = (x - rect.left) / rect.width;
+
+                    // Clamp the position between 0 and 1
+                    position = Math.max(0, Math.min(1, position));
+
+                    const percentage = position * 100;
+                    
+                    // Update the width of the before image wrapper
+                    wrapper.style.width = `${percentage}%`;
+                    
+                    // Update the position of the handle
+                    handle.style.left = `${percentage}%`;
+                }
+
+                // --- MOUSE EVENTS ---
+                
+                handle.addEventListener('mousedown', (e) => {
+                    e.preventDefault();
+                    isDragging = true;
+                    container.classList.add('cursor-ew-resize');
+                });
+
+                document.addEventListener('mouseup', () => {
+                    if (isDragging) {
+                        isDragging = false;
+                        container.classList.remove('cursor-ew-resize');
+                    }
+                });
+
+                document.addEventListener('mousemove', (e) => {
+                    if (isDragging) {
+                        slide(e.clientX);
+                    }
+                });
+
+
+                // --- TOUCH EVENTS ---
+
+                handle.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    isDragging = true;
+                }, { passive: false });
+
+                document.addEventListener('touchend', () => {
+                    if (isDragging) {
+                        isDragging = false;
+                    }
+                });
+
+                document.addEventListener('touchmove', (e) => {
+                    if (isDragging && e.touches.length === 1) {
+                        slide(e.touches[0].clientX);
+                    }
+                }, { passive: false });
+
+
+                // Initial positioning on load
+                // Ensure the images are loaded and the container has dimensions before positioning
+                const imageAfter = container.querySelector('.img-after');
+                if (imageAfter.complete) {
+                     // Set initial position to 50%
+                     slide(container.getBoundingClientRect().width / 2 + container.getBoundingClientRect().left);
+                } else {
+                    imageAfter.onload = () => {
+                        // Set initial position to 50% after image loads
+                        slide(container.getBoundingClientRect().width / 2 + container.getBoundingClientRect().left);
+                    };
+                }
+                
+                // Recalculate slider position on window resize
+                window.addEventListener('resize', () => {
+                    const currentPos = parseFloat(wrapper.style.width) / 100; // Get current percentage
+                    const rect = container.getBoundingClientRect();
+                    // Set the slider back to the current percentage position (or 50% if not yet set)
+                    const newX = rect.left + (rect.width * (currentPos || 0.5));
+                    slide(newX);
+                });
+
+
+                // Ensure initial position is 50% if images load quickly
+                slide(container.getBoundingClientRect().width / 2 + container.getBoundingClientRect().left);
+            });
+        });
+    </script>
+</body>
+</html>

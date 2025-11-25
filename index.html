@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Home Improvements - Rayl Services LLC</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for Hero background and smooth scrolling */
+        .hero-section {
+            background-image: url('https://placehold.co/1920x800/222222/ffffff?text=Modern+Home+Exterior');
+            background-size: cover;
+            background-position: center;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Style for Font Awesome Icons (social media) */
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800 antialiased">
+
+    <!-- Header and Navigation -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-extrabold text-gray-900">
+                <span class="text-red-600">2025</span> Rayl Services LLC
+            </h1>
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-red-600 font-semibold border-b-2 border-red-600 pb-1 transition duration-150 ease-in-out">Home</a>
+                <a href="gallery.html" class="text-gray-600 hover:text-red-600 transition duration-150 ease-in-out">Gallery</a>
+                <a href="services.html" class="text-gray-600 hover:text-red-600 transition duration-150 ease-in-out">Services</a>
+                <a href="about.html" class="text-gray-600 hover:text-red-600 transition duration-150 ease-in-out">About</a>
+                <a href="contact.html" class="text-gray-600 hover:text-red-600 transition duration-150 ease-in-out">Contact</a>
+            </nav>
+            <!-- Mobile Menu Placeholder (Not functional, but good practice for responsive design) -->
+            <button class="md:hidden text-gray-600 hover:text-red-600 focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- 1. Hero Section -->
+    <section id="hero" class="hero-section text-white flex items-center justify-center h-[70vh] min-h-[500px] shadow-inner">
+        <div class="text-center p-8 bg-black bg-opacity-50 rounded-xl max-w-4xl mx-4">
+            <h2 class="text-5xl sm:text-6xl font-black mb-4 leading-tight">
+                Transforming Houses into <span class="text-red-400">Dream Homes</span>
+            </h2>
+            <p class="text-xl mb-8 font-light max-w-2xl mx-auto">
+                Quality craftsmanship, reliable service, and beautiful results for every project.
+            </p>
+            <button onclick="location.href='services.html'" 
+                    class="px-10 py-4 bg-red-600 text-white font-bold text-lg rounded-full 
+                           shadow-xl hover:bg-red-700 transition duration-300 transform 
+                           hover:scale-[1.03] focus:outline-none focus:ring-4 focus:ring-red-500 focus:ring-opacity-50">
+                View Services
+            </button>
+        </div>
+    </section>
+
+    <!-- 2. Services Highlights Section -->
+    <section id="highlights" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-3xl font-bold text-center mb-12 text-gray-900">Our Core Expertise</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Highlight Card 1 -->
+                <div class="p-6 bg-gray-50 rounded-xl shadow-xl transition duration-300 hover:shadow-2xl hover:bg-red-50">
+                    <div class="text-red-600 text-4xl mb-4 text-center"><i class="fas fa-hammer"></i></div>
+                    <h4 class="text-xl font-semibold mb-3 text-center">Kitchen & Bath Remodels</h4>
+                    <p class="text-gray-600 text-center">
+                        From custom cabinetry to plumbing and tiling, we build spaces that inspire.
+                    </p>
+                </div>
+                
+                <!-- Highlight Card 2 -->
+                <div class="p-6 bg-gray-50 rounded-xl shadow-xl transition duration-300 hover:shadow-2xl hover:bg-red-50">
+                    <div class="text-red-600 text-4xl mb-4 text-center"><i class="fas fa-paint-roller"></i></div>
+                    <h4 class="text-xl font-semibold mb-3 text-center">Exterior & Siding</h4>
+                    <p class="text-gray-600 text-center">
+                        Boost curb appeal and protect your investment with professional siding and painting services.
+                    </p>
+                </div>
+                
+                <!-- Highlight Card 3 -->
+                <div class="p-6 bg-gray-50 rounded-xl shadow-xl transition duration-300 hover:shadow-2xl hover:bg-red-50">
+                    <div class="text-red-600 text-4xl mb-4 text-center"><i class="fas fa-tree"></i></div>
+                    <h4 class="text-xl font-semibold mb-3 text-center">Decks & Outdoor Living</h4>
+                    <p class="text-gray-600 text-center">
+                        Design and construction of custom decks, patios, and outdoor entertaining areas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Call to Action / Gallery Preview -->
+    <section id="cta" class="py-16 bg-gray-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between bg-white rounded-2xl shadow-2xl p-8 md:p-12">
+            <div class="md:w-1/2 mb-6 md:mb-0 md:pr-8">
+                <h3 class="text-3xl font-bold text-gray-900 mb-4">See the <span class="text-red-600">Proof</span> of Quality</h3>
+                <p class="text-lg text-gray-600 mb-6">
+                    We stand by our work. View our latest transformations and before-and-after comparisons in the gallery.
+                </p>
+                <a href="gallery.html" 
+                   class="inline-block px-8 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition duration-300 shadow-md">
+                   Browse Our Gallery
+                </a>
+            </div>
+            <div class="md:w-1/2">
+                <img src="https://placehold.co/400x250/ef4444/ffffff?text=Gallery+Preview" alt="Project Showcase" class="rounded-xl shadow-xl w-full h-auto object-cover">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <!-- Footer Navigation -->
+            <div class="flex flex-wrap justify-center space-x-6 mb-6 text-sm">
+                <a href="gallery.html" class="hover:text-red-400 transition">Gallery</a>
+                <a href="services.html" class="hover:text-red-400 transition">Services</a>
+                <a href="about.html" class="hover:text-red-400 transition">About</a>
+                <a href="contact.html" class="hover:text-red-400 transition">Contact</a>
+                <a href="#" class="hover:text-red-400 transition">Privacy Policy</a>
+            </div>
+
+            <!-- Social Media Icons -->
+            <div class="social space-x-6 mb-6 text-2xl">
+                <a href="https://facebook.com/yourpage" target="_blank" class="text-gray-400 hover:text-red-600 transition">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://twitter.com/yourpage" target="_blank" class="text-gray-400 hover:text-red-600 transition">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://instagram.com/yourpage" target="_blank" class="text-gray-400 hover:text-red-600 transition">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+
+            <p class="text-sm text-gray-400">&copy; 2025 Rayl Services LLC. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
